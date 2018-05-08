@@ -22,6 +22,8 @@ public class UserControllerImpl implements UserController {
     @Override
     public Map<String ,Object> userLogin(String username, String password) {
 
+        System.out.println("username="+username);
+
         return userService.userLogin(username,password);
 
     }
