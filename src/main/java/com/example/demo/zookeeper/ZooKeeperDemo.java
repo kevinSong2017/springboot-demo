@@ -3,7 +3,6 @@ package com.example.demo.zookeeper;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.util.concurrent.CountDownLatch;
 

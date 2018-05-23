@@ -1,7 +1,5 @@
 package com.example.demo.util;
 
-import org.apache.zookeeper.data.Stat;
-
 /**
  * 饿汉式
  * 线程安全

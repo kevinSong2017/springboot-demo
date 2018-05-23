@@ -12,6 +12,10 @@ public class HelloControllerImpl implements HelloController {
     @RequestMapping(value = "hello",method = RequestMethod.GET,name = "helloService")
     public  @ResponseBody String hello(){
 
+
+      //  ThreadLocal<String > threadLocal=new ThreadLocal<String>();
+
+
         System.out.println("访问成功");
 
         return "hello";

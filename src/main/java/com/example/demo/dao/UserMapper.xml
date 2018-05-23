@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="java.com.example.demo.dao.UserMapper">
 
-    <select id="userLogin" parameterType="String" resultType="map">
+    <select id="userLogin" parameterType="string" resultType="map">
 		select  * FROM  user_info where  user_name=#{username} and  user_password=#{password}
 	</select>
 

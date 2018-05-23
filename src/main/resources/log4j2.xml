@@ -1,0 +1,15 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appenders>
+        <File name="file" filename="${sys.user.home}/logs/kevin.log">
+            <PatternLayout pattern="%d{HH:mm:ss,SSS}%p %c (%L) - %m%n"/>
+        </File>
+    </appenders>
+    <loggers>
+        <root level="ERROR">
+            <appender-ref ref="file"/>
+        </root>
+        <logger name="demo.msa" level="DEBUG"/>
+    </loggers>
+</configuration>-->
