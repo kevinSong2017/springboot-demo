@@ -6,18 +6,17 @@ import com.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
 
-@RestController
+@Controller
 @RequestMapping("uc")
 public class UserControllerImpl implements UserController {
 
@@ -25,6 +24,15 @@ public class UserControllerImpl implements UserController {
     private UserService userService;
 
     private static Logger logger=LoggerFactory.getLogger(UserControllerImpl.class);
+
+    /**
+     * @return
+     */
+    @RequestMapping("/hello")
+    public String helloHtml( ) {
+        System.out.println("进入跳转方法");
+        return "login";
+    }
 
 
     @RequestMapping(value = "userLogin",method = RequestMethod.GET)
@@ -55,6 +63,12 @@ public class UserControllerImpl implements UserController {
         return "/login";
     }
 
+    /**
+     * 验证valid
+     * @param user
+     * @param bindingResult
+     * @return
+     */
     @RequestMapping("/testValid")
     private String testValid(@Valid User user, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
@@ -67,6 +81,9 @@ public class UserControllerImpl implements UserController {
         }
         return "test";
     }
+
+
+
 
 
 }

@@ -11,31 +11,10 @@ public class HelloControllerImpl implements HelloController {
 
     @RequestMapping(value = "hello",method = RequestMethod.GET,name = "helloService")
     public  @ResponseBody String hello(){
-
-
       //  ThreadLocal<String > threadLocal=new ThreadLocal<String>();
-
-
         System.out.println("访问成功");
-
         return "hello";
 
-       /* CharSequence sequence=new CharSequence() {
-            @Override
-            public int length() {
-                return 0;
-            }
-
-            @Override
-            public char charAt(int index) {
-                return 0;
-            }
-
-            @Override
-            public CharSequence subSequence(int start, int end) {
-                return null;
-            }
-        }*/
 
     }
 
