@@ -5,5 +5,4 @@ public interface HelloController {
      * hello测试方法
      * @return
      */
-    String hello();
-}
+    String hello();}

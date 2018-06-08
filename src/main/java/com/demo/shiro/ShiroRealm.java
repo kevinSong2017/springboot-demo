@@ -1,3 +1,4 @@
+/*
 
 package com.demo.shiro;
 
@@ -18,10 +19,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+*/
 /**
  * 添加Realm 验证
  *
- */
+ *//*
+
 public class ShiroRealm extends AuthorizingRealm {
 
     private Logger logger=LoggerFactory.getLogger(ShiroRealm.class);
@@ -32,11 +35,13 @@ public class ShiroRealm extends AuthorizingRealm {
     @Autowired
     private PermissionDao permissionDao;
 
-    /**
+    */
+/**
      * Authorization：授权信息
      * @param principals
      * @return
-     */
+     *//*
+
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         logger.info("doGetAuthorizationInfo: +"+principalCollection.toString());
@@ -58,12 +63,14 @@ public class ShiroRealm extends AuthorizingRealm {
         return info;
     }
 
-    /**
+    */
+/**
      * Authentication：证明 身份
      * @param token
      * @return
      * @throws AuthenticationException
-     */
+     *//*
+
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         logger.info("1.doGetAuthenticationInfo: +"+authenticationToken.toString());
@@ -83,3 +90,4 @@ public class ShiroRealm extends AuthorizingRealm {
         }
     }
 }
+*/
