@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.demo.dao.UserMapper">
-
-    <select id="userLogin" parameterType="String" resultType="map">
+	<select id="userLogin" parameterType="String" resultType="map">
 		select  * FROM  user_info where  user_name=#{username} and  user_password=#{password}
 	</select>
 
 	<select id="getUser"  parameterType="String" resultType="com.demo.entity.User">
-		select user_id,user_name,user_password,role_id FROM demo.user_info where user_name=#{username} and  user_password=#{password}
+		<include refid="user_columns"/>
 	</select>
 
+	<sql id="user_columns">
+		select * FROM demo.user where username=#{username} and  password=#{password}
+	</sql>
 </mapper>
+
