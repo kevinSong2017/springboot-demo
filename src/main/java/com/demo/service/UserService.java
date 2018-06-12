@@ -1,6 +1,8 @@
 package com.demo.service;
 
+import com.demo.entity.Role;
 import com.demo.entity.User;
+import com.demo.entity.UserRole;
 
 import java.util.List;
 import java.util.Map;
@@ -21,5 +23,7 @@ public interface UserService {
 
     int delete(Integer id);
 
-    User getByUserName(String userName);
+    UserRole getUserRoleMess();
+
+    List<Role> getRolePermission(int role_id);
 }

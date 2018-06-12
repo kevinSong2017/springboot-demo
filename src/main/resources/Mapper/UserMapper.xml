@@ -6,12 +6,66 @@
 		select  * FROM  user_info where  user_name=#{username} and  user_password=#{password}
 	</select>
 
+	<!--sql 和 include 标签 -->
 	<select id="getUser"  parameterType="String" resultType="com.demo.entity.User">
 		<include refid="user_columns"/>
 	</select>
-
 	<sql id="user_columns">
 		select * FROM demo.user where username=#{username} and  password=#{password}
 	</sql>
+
+	<!--一对一关联查询 用association -->
+	<resultMap id="userRoleMess" type="com.demo.entity.UserRole">
+		<id column="id" property="id"/>
+		<result column="username" property="username" />
+		<result column="password" property="password" />
+		<association property="role" javaType="com.demo.entity.Role">
+			<id column="role_id" property="id"/>
+			<result column="name" property="name" />
+			<result column="role_level" property="roleLevel" />
+			<result column="description" property="description" />
+		</association>
+	</resultMap>
+	<select id="getUserRoleMess" resultMap="userRoleMess">
+		select
+			u.id,
+			u.username,
+			u.password,
+			u.role_id ,
+			r.name,
+			r.role_level ,
+			r.description
+		FROM
+			demo.user u left join demo.role r  on  u.role_id=r.id
+	</select>
+
+
+	<!--一对多关联查询 -->
+	<resultMap id="roleAndPermission" type="com.demo.entity.Role">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="role_level" property="roleLevel"/>
+		<result column="description" property="description"/>
+		<collection property="permissions" ofType="com.demo.entity.Permission">
+			<id column="p_id" property="id" />
+			<result column="p_name" property="name" />
+			<result column="permission_url" property="permissionUrl" />
+			<result column="method" property="method" />
+			<result column="p_desc" property="description" />
+		</collection>
+	</resultMap>
+	<select id="getRolePermission" resultMap="roleAndPermission">
+		SELECT
+			r.id,
+			r.`name`,
+			r.role_level,
+			r.description,
+			p.id AS p_id,
+			p.`name` AS p_name,
+			p.permission_url ,
+			p.method,
+			p.description AS p_desc
+		FROM permission p LEFT JOIN role r ON p.role_id =r.id
+	</select>
 </mapper>
 

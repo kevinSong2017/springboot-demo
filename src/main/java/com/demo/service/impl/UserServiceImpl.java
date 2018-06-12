@@ -2,7 +2,9 @@ package com.demo.service.impl;
 
 import com.demo.dao.UserDao;
 import com.demo.dao.UserMapper;
+import com.demo.entity.Role;
 import com.demo.entity.User;
+import com.demo.entity.UserRole;
 import com.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,7 +75,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getByUserName(String userName) {
-        return userDao.getByUserName(userName);
+    public UserRole getUserRoleMess() {
+        return userMapper.getUserRoleMess();
+    }
+
+    @Override
+    public List<Role> getRolePermission(int role_id) {
+        return userMapper.getRolePermission(role_id);
     }
 }

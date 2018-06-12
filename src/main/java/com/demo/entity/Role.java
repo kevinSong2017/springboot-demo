@@ -1,10 +1,25 @@
 package com.demo.entity;
 
+import java.util.List;
+
 public class Role {
     private Integer id;
     private String name;
     private Integer roleLevel;
     private String description;
+
+    /**
+     * 一个role 对应多个权限
+     */
+    private List<Permission> permissions;
+
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
+    }
 
     public Integer getId() {
         return id;

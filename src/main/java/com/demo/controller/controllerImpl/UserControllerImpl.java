@@ -1,22 +1,24 @@
 package com.demo.controller.controllerImpl;
 
 import com.demo.controller.UserController;
+import com.demo.entity.Role;
+import com.demo.entity.SimpleUser;
 import com.demo.entity.User;
+import com.demo.entity.UserRole;
 import com.demo.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
 
-@Controller
+@RestController
 @RequestMapping("uc")
 public class UserControllerImpl implements UserController {
 
@@ -25,24 +27,21 @@ public class UserControllerImpl implements UserController {
 
     private static Logger logger=LoggerFactory.getLogger(UserControllerImpl.class);
 
+
     /**
+     * 登陆
+     * @param user
      * @return
      */
-    @RequestMapping("/hello")
-    public String helloHtml( ) {
-        System.out.println("进入跳转方法");
-        return "login";
-    }
-
-
     @RequestMapping(value = "userLogin",method = RequestMethod.GET)
     @Override
-    public Map<String ,Object> userLogin(String username, String password) {
+    @ResponseBody
+    public Map<String ,Object> userLogin(@Valid SimpleUser user) {
 
-        logger.info("info:username:"+username);
-        logger.debug("debug:username:"+username);
+        logger.info("info:username:"+user.getUsername());
+        logger.debug("debug:username:"+user.getPassword());
 
-        return userService.userLogin(username,password);
+        return userService.userLogin(user.getUsername(),user.getPassword());
 
     }
 
@@ -82,8 +81,21 @@ public class UserControllerImpl implements UserController {
         return "test";
     }
 
+    @RequestMapping("getUserRoleMess")
+    @Override
+    public UserRole getUserRoleMess() {
+        return userService.getUserRoleMess();
+    }
 
-
-
-
+    /**
+     * 一对多关联查询
+     * @param role_id
+     * @return
+     */
+    @RequestMapping("getRolePermission")
+    @Override
+    public List<Role> getRolePermission(
+            @RequestParam(value = "role_id",required = false,defaultValue = "1") int role_id) {
+        return userService.getRolePermission(role_id);
+    }
 }

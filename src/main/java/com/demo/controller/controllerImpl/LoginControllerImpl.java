@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+
 /**
  * 登陆控制器
  */
@@ -42,6 +43,8 @@ public class LoginControllerImpl implements LoginController {
     public String index() {
         return "no permission";
     }
+
+
 
 
 }

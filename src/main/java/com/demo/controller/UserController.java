@@ -1,7 +1,11 @@
 package com.demo.controller;
 
+import com.demo.entity.Role;
+import com.demo.entity.SimpleUser;
 import com.demo.entity.User;
+import com.demo.entity.UserRole;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserController {
@@ -12,9 +16,15 @@ public interface UserController {
      * @param password
      * @return
      */
-    Map<String,Object> userLogin(String username, String password);
+    Map<String,Object> userLogin(SimpleUser user);
 
 
     User getUser(String username, String password);
+
+
+    UserRole getUserRoleMess();
+
+    List<Role> getRolePermission(int role_id);
+
 
 }
