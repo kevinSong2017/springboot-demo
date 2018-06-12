@@ -26,4 +26,7 @@ public interface UserMapper {
 
 
     List<Role> getRolePermission(int role_id);
+
+
+    int insertIntoUser(String a);
 }

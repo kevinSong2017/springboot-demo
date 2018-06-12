@@ -1,0 +1,22 @@
+server:
+  port: 8010
+spring:
+  datasource:
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo
+mybatis:
+  mapper-locations: classpath:Mapper/*.xml
+  type-aliases-package: com.example.demo.dao
+  configuration:
+      lazy-loading-enabled: true
+logging:
+  level: info
+
+
+
+
+
+
+

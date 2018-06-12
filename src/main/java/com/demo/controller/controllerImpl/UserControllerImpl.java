@@ -98,4 +98,11 @@ public class UserControllerImpl implements UserController {
             @RequestParam(value = "role_id",required = false,defaultValue = "1") int role_id) {
         return userService.getRolePermission(role_id);
     }
+
+    @RequestMapping("insert")
+    public void insert(String a){
+        logger.info("参数："+a);
+        userService.insertIntoUser(a);
+    }
+
 }

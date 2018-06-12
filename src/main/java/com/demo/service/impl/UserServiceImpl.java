@@ -83,4 +83,11 @@ public class UserServiceImpl implements UserService {
     public List<Role> getRolePermission(int role_id) {
         return userMapper.getRolePermission(role_id);
     }
+
+
+    @Override
+    public void insertIntoUser(String a) {
+        int i = userMapper.insertIntoUser(a);
+        logger.info("插入是否成功："+i);
+    }
 }

@@ -26,4 +26,6 @@ public interface UserService {
     UserRole getUserRoleMess();
 
     List<Role> getRolePermission(int role_id);
+
+    void insertIntoUser(String a);
 }

@@ -26,6 +26,10 @@
 			<result column="description" property="description" />
 		</association>
 	</resultMap>
+
+
+
+
 	<select id="getUserRoleMess" resultMap="userRoleMess">
 		select
 			u.id,
@@ -67,5 +71,11 @@
 			p.description AS p_desc
 		FROM permission p LEFT JOIN role r ON p.role_id =r.id
 	</select>
+
+	<insert id="insertIntoUser" parameterType="string" >
+		insert into demo.user set  username=#{a}
+	</insert>
+
+
 </mapper>
 
