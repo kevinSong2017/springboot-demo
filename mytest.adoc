@@ -1,0 +1,7 @@
+:toc:
+:imagesdir: ./images
+
+= this is my test
+
+
+image::timg.jpg[sunset]
